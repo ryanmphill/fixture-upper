@@ -63,12 +63,8 @@ function App() {
       setJSONData(formattedResponse)
     } catch (error) {
       console.error(error)
+      window.alert("Something went wrong")
     }
-      
-    
-
-    // console.log(typeof JSON.parse(userJSONinput.current.value))
-    // console.log(userModelInput.current.value)
   }
 
   return (
