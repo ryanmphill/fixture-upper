@@ -1,0 +1,42 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+
+#codeBlock {
+  width: 100%;
+  overflow-x: auto;
+  max-height: 150vh;
+  overflow-y: auto;
+}
+
+.fixture_upper__codeSection {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fixture_upper__formField {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.fixture_upper__formSection {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fixture_upper--input {
+  width: 100%;
+}
+
+#userJSONInput {
+  height: 40vh;
+}
