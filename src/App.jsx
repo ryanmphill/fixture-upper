@@ -51,6 +51,8 @@ function App() {
       return;
     }
 
+    e.target.disabled = true
+
     const data = {
       model: userModelInput.current.value,
       JSON: JSONdata
@@ -61,9 +63,11 @@ function App() {
       console.log(response)
       let formattedResponse = JSON.stringify(response, null, 2)
       setJSONData(formattedResponse)
+      e.target.disabled = false
     } catch (error) {
       console.error(error)
       window.alert("Something went wrong")
+      e.target.disabled = false
     }
   }
 
