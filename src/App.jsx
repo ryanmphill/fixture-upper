@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { darcula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { Grid } from 'react-loading-icons'
 import './App.css'
 import { convertToFixture } from './fetchers/convertToFixture';
 
@@ -14,6 +15,7 @@ function App() {
   })
   const [errorMessages, setErrorMessages] = useState([])
   const [JSONData, setJSONData] = useState("")
+  const [dataLoading, setDataLoading] = useState(false)
 
   const exampleData = `[
     {
@@ -51,6 +53,10 @@ function App() {
       return;
     }
 
+    setDataLoading(true)
+
+    e.target.disabled = true
+
     const data = {
       model: userModelInput.current.value,
       JSON: JSONdata
@@ -61,9 +67,13 @@ function App() {
       console.log(response)
       let formattedResponse = JSON.stringify(response, null, 2)
       setJSONData(formattedResponse)
+      e.target.disabled = false
+      setDataLoading(false)
     } catch (error) {
       console.error(error)
       window.alert("Something went wrong")
+      e.target.disabled = false
+      setDataLoading(false)
     }
   }
 
@@ -107,6 +117,12 @@ function App() {
           <button onClick={(e) => handleSubmit(e)}>Submit</button>
         </section>
       </div>
+      {
+        dataLoading &&
+        <div id="loadingIcon">
+          <Grid stroke={'#7373e875'} fill={'#7373e875'} speed={1.5}/>
+        </div>
+      }
       {
         JSONData.length > 0 && <section className="fixture_upper__codeSection">
           <CopyToClipboard text={JSONData}
