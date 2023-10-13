@@ -1,8 +1,31 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   text-align: center;
   width: 100%;
+}
+
+.fixture_upper__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+}
+
+.fixture_upper__header {
+  box-shadow: -2px 2px 4px rgba(43, 64, 64, 0.15);
+  margin-top: 0;
+}
+
+#title {
+  padding: 1rem 0;
+  margin: 0;
+  font-size: 1.65rem;
+}
+
+#subtitle {
+  padding: 0.25rem 0 0.5rem 0;
+  margin: 0;
+  font-size: 0.85rem;
 }
 
 #codeBlock {
@@ -10,12 +33,22 @@
   overflow-x: auto;
   max-height: 150vh;
   overflow-y: auto;
+  border-radius: 6px;
 }
 
 .fixture_upper__codeSection {
-  width: 60%;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  box-shadow: -1px -1px 8px rgba(43, 64, 64, 0.25);
+  padding: 1rem;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  row-gap: 0.25rem;
 }
 
 .fixture_upper__formField {
@@ -24,16 +57,28 @@
   justify-content: flex-start;
   align-items: flex-start;
   row-gap: 0.25rem;
-  margin-top: 0.5rem;
+  font-weight: 500;
+  font-family: 'Josefin Sans';
 }
 
 .fixture_upper__formSection {
-  width: 60%;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   row-gap: 1.25rem;
+  margin-top: 1rem;
+  box-shadow: -1px -1px 8px rgba(43, 64, 64, 0.25);
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+@media (min-width: 900px) {
+  .fixture_upper__formSection, .fixture_upper__codeSection {
+    width: 78%;
+  }
 }
 
 .fixture_upper--input {
@@ -43,4 +88,18 @@
 
 #userJSONInput {
   height: 40vh;
+  outline-color: rgb(115, 115, 232);
+}
+
+#userModelInput {
+  height: 2rem;
+  outline-color: rgb(115, 115, 232);
+}
+
+::placeholder {
+  opacity: 0.75;
+}
+
+.error_message {
+  color: red;
 }
