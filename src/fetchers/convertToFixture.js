@@ -1,5 +1,7 @@
+import { apiUrl } from "./apiConfig";
+
 export const convertToFixture = async (userInputData) => {
-    const res = await fetch(`http://localhost:8000/converter`, {
+    const res = await fetch(`${apiUrl}/converter`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
