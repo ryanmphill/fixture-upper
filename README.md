@@ -1,8 +1,4 @@
-# React + Vite
+# Fixture Upper
+This application allows you to convert data in the standard JSON format to JSON fixtures that can be used to seed databases connected to a Django project.  This is expecially useful if you have been using the JSON-server mock api with dummy data inside of .json files while developing a client, and you now want to work with that data as you build out the back end with Django.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Fixture Upper Demo](./public/fixture_upper_demo.gif)
