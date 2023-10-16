@@ -36,6 +36,17 @@
   border-radius: 6px;
 }
 
+.codeBlock {
+  text-align: left;
+  background-color: rgba(43, 64, 64, 0.95);
+  color: #fff;
+  width: 100%;
+  overflow-x: auto;
+  max-height: 150vh;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
 .fixture_upper__codeSection {
   width: 95%;
   margin-left: auto;
@@ -113,4 +124,8 @@
 .icon-loading {
   width: 100%;
   height: inherit;
+}
+
+#copyMessage {
+  color: green;
 }
