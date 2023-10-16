@@ -1,6 +1,4 @@
 import { useRef, useState } from 'react'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { darcula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import { Grid } from 'react-loading-icons'
 import './App.css'
@@ -17,6 +15,7 @@ function App() {
   const [JSONData, setJSONData] = useState("")
   const [dataLoading, setDataLoading] = useState(false)
 
+  // Define placeholder example for input field
   const exampleData = `[
     {
       "id": 1,
@@ -52,6 +51,10 @@ function App() {
       setErrorMessages(errors)
       return;
     }
+
+    // Reset copy state and error message state
+    setCopyState({ ...copyState, copied: false })
+    setErrorMessages([])
 
     setDataLoading(true)
 
@@ -107,12 +110,11 @@ function App() {
               ref={userJSONinput}
             >
             </textarea>
-          </div>
-
-          {errorMessages.includes("JSONError") &&
+            {errorMessages.includes("JSONError") &&
             <div className="error_message">
               Please make sure your input is an array of valid JSON data ex: &#91; &#123; "property": "value" &#125; &#93;
             </div>}
+          </div>
 
           <button onClick={(e) => handleSubmit(e)}>Submit</button>
         </section>
@@ -129,10 +131,12 @@ function App() {
             onCopy={() => setCopyState({ ...copyState, copied: true })}>
             <button>Copy to clipboard 📋</button>
           </CopyToClipboard>
-          {copyState?.copied ? <div style={{ color: 'red' }}>Copied.</div> : <></>}
-          <SyntaxHighlighter language="javascript" style={darcula} id="codeBlock">
-            {JSONData}
-          </SyntaxHighlighter>
+          {copyState?.copied ? <div id="copyMessage">Copied.</div> : <></>}
+          <pre className="codeBlock">
+            <code>
+              {JSONData}
+            </code>
+          </pre>
         </section>
       }
     </>
